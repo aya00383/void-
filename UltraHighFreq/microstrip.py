@@ -13,7 +13,6 @@ if q1 == 1:
 	W = float(input('The width of microstrip line? [meters]  '))
 
 	e_eff = ((e_r+1)/2.) + ((e_r-1)/2*(1/np.sqrt(1+(12*d/W))))
-	print('Calculated effective dielectric constant = ',e_eff)
 	print('W/d ratio = ',W/d)
 
 	if W/d <1:
@@ -39,7 +38,6 @@ elif q1 == 2:
 		print('You typed something other than the given options. Program terminated.')
 
 	print('The calculated W/d ratio = ',ratio)
-	e_eff = ((e_r+1)/2.) + ((e_r-1)/2*(1/np.sqrt(1+(12*d/W))))
 
 elif q1 == 3:
 	Z0 = float(input('The characteristic impedance? [ohm]  '))
@@ -56,20 +54,16 @@ elif q1 == 3:
 			ratio1 = 2/np.pi*(B-1-np.log(2*B -1) + ((e_r-1)/2/e_r *(np.log(B-1)+0.39-(0.61/e_r))))
 			ratio2 = 8*np.exp(A)/(np.exp(2*A)-2)
 			if ratio1 < 2:
-				print('The ratio is less than 2.')
+			#	print('The ratio is less than 2.')
 				#print('This is ratio2 value (this should be greater than 2) = ', ratio2)
 				d = W/ratio1 
 				print('d = ',d,' [meters]')
-				e_eff = ((e_r+1)/2.) + ((e_r-1)/2*(1/np.sqrt(1+(12*d/W))))
-				print('Calculated Effective Dielectric constant = ',e_eff)
 
 			elif ratio2 > 2:
-				print('The ratio is greater than 2.')
+			#	print('The ratio is greater than 2.')
 				#print('This is ratio1 value (this should be less than 2) = ', ratio1)
 				d = W/ratio2
 				print('d = ',d,' [meters]')
-				e_eff = ((e_r+1)/2.) + ((e_r-1)/2*(1/np.sqrt(1+(12*d/W))))
-				print('Calculated Effective Dielectric constant = ',e_eff)
 
 			else:
 				print('Problem occurs. Try Again.')
@@ -77,23 +71,22 @@ elif q1 == 3:
 			ratio1 = 2/np.pi*(B-1-np.log(2*B -1) + ((e_r-1)/2/e_r *(np.log(B-1)+0.39-(0.61/e_r))))
 			ratio2 = 8*np.exp(A)/(np.exp(2*A)-2)
 			if ratio1 < 2:
-				print('The ratio is less than 2.')
+			#	print('The ratio is less than 2.')
 				#print('This is ratio2 value = ', ratio2)
 				W = d*ratio1 
 				print('W = ',W, ' [meters]')
-				e_eff = ((e_r+1)/2.) + ((e_r-1)/2*(1/np.sqrt(1+(12*d/W))))
-				print('Calculated Effective Dielectric constant = ',e_eff)
 
 			elif ratio2 > 2:
-				print('The ratio is greater than 2.')
+			#	print('The ratio is greater than 2.')
 				#print('This is ratio1 value = ', ratio1)
 				W = d * ratio2
 				print('W = ',W,' [meters]')
-				e_eff = ((e_r+1)/2.) + ((e_r-1)/2*(1/np.sqrt(1+(12*d/W))))
-				print('Calculated Effective Dielectric constant = ',e_eff)
 
 			else:
-				print('Problem occurs. Try Again.')					
+				print('Problem occurs. Try Again.')
+	e_eff = ((e_r+1)/2.) + ((e_r-1)/2*(1/np.sqrt(1+(12*d/W))))
+	print('Calculated Effective Dielectric constant = ',e_eff)
+					
 else:
 	print('You typed something other than the given options. Restart the program.')
 
